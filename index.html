@@ -33,9 +33,20 @@ body{
     font-family: "Open Sans", sans-serif;
     
 }
+    .blink {
+            animation: blinker 1.5s linear infinite;
+            color: red;
+            font-family: sans-serif;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
 </style>
 <body>
     <h3 style="text-align: center;"><span id="time"></span></h3>
+    <p class="blink"> AKSHAY VC</p>
     
     <script>
        function refreshTime() {
