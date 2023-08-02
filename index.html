@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans">
+</head>
+<style>
+    /* table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 12px;
+}
+td {
+  text-align: center;
+}
+th {
+  background-color: #04AA6D;
+  color: white;
+  text-transform: capitalize;
+}
+table {
+  width: 100%;
+}
+
+th {
+  height: 70px;
+} */
+body{
+    font-family: "Open Sans", sans-serif;
+    
+}
+.blink {
+            animation: blinker 1.5s linear infinite;
+            color: red;
+            font-family: sans-serif;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+
+        /* Reset some default table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Center align table headers */
+th {
+  
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Set table to take full width in smaller screens */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Adjust font size for smaller screens */
+@media (max-width: 768px) {
+  th, td {
+    font-size: 14px;
+  }
+}
+
+
+/* Style for empty cells */
+td:empty::before {
+  content: "No data";
+  color: red;
+}
+
+/* Optional style for non-empty cells */
+td:not(:empty) {
+  /* Add your desired styles for non-empty cells here */
+}
+
+
+
+.dot {
+  width: 20px; /* Update the width to make it smaller */
+  height: 20px; /* Update the height to make it smaller */
+  margin-left: 373px;
+  background-color: green;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  animation: blink 1s infinite alternate; /* Blink animation */
+}
+
+/* Blink animation keyframes */
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+/* Add responsive styles */
+ @media (max-width: 768px) {
+  .dot {
+    width: 10px;
+    height: 9px;
+    margin-left: 384px;
+  }
+  .online{
+   margin-top: -14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dot {
+    width: 20px;
+    height: 20px;
+  }
+} 
+.online{
+  margin-left: 397px; margin-top: -14px;
+}
+
+
+</style>
+<body>
+    <!-- <h3 style="text-align: center;"><span id="time"></span></h3> -->
+
+    <p style="text-align: center;" id="dateAndTime"></p>
+    
+    <script>
+//        function refreshTime() {
+        
+//   const timeDisplay = document.getElementById("time");
+//   const dateString = new Date().toLocaleString();
+//   const formattedString = dateString.replace(".", " : ");
+//   timeDisplay.textContent = formattedString;
+// }
+//   setInterval(refreshTime, 1000);
+
+
+function updateDateAndTime() {
+      // Get the current date and time
+      const now = new Date();
+
+      // Extract the components of the date and time
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+
+
+      hours = hours % 12 || 12;
+
+      // Format the output string
+      const formattedTime = `${month}/${day}/${year} ${hours}:${minutes}:${seconds} ${ampm}`;
+
+      // Display the date and time on the webpage
+      document.getElementById("dateAndTime").textContent = formattedTime;
+    }
+
+    // Update the date and time every second
+    setInterval(updateDateAndTime, 1000);
+
+    // Call the function once to display the initial date and time
+    updateDateAndTime();
+
+    // function isRowEmpty(row) {
+    //         const cells = row.querySelectorAll('td');
+    //         for (let i = 0; i < cells.length; i++) {
+    //             const cellContent = cells[i].textContent.trim();
+    //             if (cellContent !== '') {
+    //                 return false;
+    //             }
+    //         }
+    //         return true;
+    //     }
+
+    //     function displayEmptyRowMessage(row) {
+    //         const message = document.createElement('p');
+    //         message.textContent = 'No data';
+    //         message.style.color = 'red'; // Optional: You can style the message if desired.
+    //         row.appendChild(message);
+    //     }
+
+    //     const table = document.getElementById('myTable');
+    //     const rows = table.getElementsByTagName('tr');
+        
+    //     for (let i = 0; i < rows.length; i++) {
+    //         if (isRowEmpty(rows[i])) {
+    //             displayEmptyRowMessage(rows[i]);
+    //         }
+    //     }
+    
+
+    </script>
+
+<!-- In this updated example, the displayEmptyRowMessage(row) function creates a new <p> (paragraph) element, sets its textContent to "No data", and optionally applies some styling to the message (in this case, setting the text color to red). Then, it appends the new <p> element as a child of the empty row (row.appendChild(message)).
+
+This will display the "No data" message in a new paragraph below the table cell of each empty row.
+
+Keep in mind that this approach adds new elements to the table dynamically. If you want to handle any specific behavior when the row becomes non-empty, you should also remove the custom message element from the row accordingly.
+
+
+
+
+ -->
+ <div class="dot"></div><h5 class="online">online</h5>
+
+<p  style="text-align: center;" class="blink"> AKSHAY VC RESULTS </p>
+
+    <!-- ist semester -->
+    <table id="myTable">
+        <tr>
+          <th>semester | year</th>
+          <th>Course Title</th>
+          <th>CE</th>
+          <th>ESE</th>
+          <th>Grade Awarded</th>
+        </tr>
+        <tr>
+            <td>1st | March , 2021</td>
+          <td>Speaking and Listening Skills</td>
+          <td>17.000</td>
+          <td>25.000</td>
+          <td>E</td>
+        </tr>
+        <td>1st | March , 2021</td>
+        <td>Introduction to IT</td>
+        <td>17.000</td>
+        <td>28.000</td>
+        <td>E</td>
+      </tr>
+    </tr>
+    <td>1st | March , 2021</td>
+    <td>Introduction to Programming</td>
+    <td>18.000</td>
+    <td>22.000</td>
+    <td>E</td>
+  </tr>
+</tr>
+<td>1st | December , 2021</td>
+<td>Mathematics I</td>
+<td>18.000</td>
+<td>22.000</td>
+<td>E</td>
+</tr>
+</tr>
+<td>1st | December , 2021</td>
+<td>Digital Electronics</td>
+<td>17.000</td>
+<td>28.000</td>
+<td>E</td>
+</tr>
+</tr>
+<td>1st | March , 2021</td>
+<td>Programming Lab 1</td>
+<td>18.000</td>
+<td>71.000</td>
+<td>A</td>
+</tr>
+</tr>
+<td>1st | March , 2021</td>
+<td>PC Software Lab</td>
+<td>18.000</td>
+<td>78.000</td>
+<td>A+</td>
+</tr>
+        
+      </table>
+
+       <!-- 2nd  semester -->
+
+
+      <table id="myTable">
+        <tr>
+          <th>semester | year</th>
+          <th>Course Title</th>
+          <th>CE</th>
+          <th>ESE</th>
+          <th>Grade Awarded</th>
+        </tr>
+        <tr>
+            <td>2nd | March , 2021</td>
+          <td>Writing and Presentation Skills</td>
+          <td>17.000</td>
+          <td>26.000</td>
+          <td>E</td>
+        </tr>
+        <tr>
+        <td>2nd | March , 2021</td>
+        <td>Object Oriented Programming</td>
+        <td>17.000</td>
+        <td>23.000</td>
+        <td>E</td>
+      </tr>
+    <tr>
+    <td>2nd | </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+<tr>
+<td>2nd | </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2nd | </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2nd | March , 2021</td>
+<td>Programming Lab II</td>
+<td>18.000</td>
+<td>50.000</td>
+<td>C</td>
+</tr>
+<tr>
+<td>2nd | March , 2021</td>
+<td>Data Structures Lab</td>
+<td>18.000</td>
+<td>49.000</td>
+<td>C</td>
+</tr>
+        
+      </table>
+
+      <!-- 3rd semester -->
+
+      <table>
+        <tr>
+          <th>semester | year</th>
+          <th>Course Title</th>
+          <th>CE</th>
+          <th>ESE</th>
+          <th>Grade Awarded</th>
+        </tr>
+        <tr>
+            <td>3rd | November , 2021</td>
+          <td>Computer Oriented Numerical Methods</td>
+          <td>18.000</td>
+          <td>28.000</td>
+          <td>E</td>
+        </tr>
+        <td>3rd | November , 2021</td>
+        <td>Operating Systems</td>
+        <td>16.000</td>
+        <td>31.000</td>
+        <td>E</td>
+      </tr>
+    </tr>
+    <td>3rd | November , 2021</td>
+    <td>Computer Organization & Architecture</td>
+    <td>16.000</td>
+    <td>28.000</td>
+    <td>E</td>
+  </tr>
+</tr>
+<td>3rd | November , 2021</td>
+<td>Programming in Java</td>
+<td>18.000</td>
+<td>22.000</td>
+<td>E</td>
+</tr>
+</tr>
+<td>3rd | </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tr>
+<td>3rd | November , 2021</td>
+<td>Programming Lab -IV</td>
+<td>20.000</td>
+<td>38.000</td>
+<td>D</td>
+</tr>
+</tr>
+<td>3rd | November , 2021</td>
+<td>Numerical Methods Lab</td>
+<td>20.000</td>
+<td>77.000</td>
+<td>A+</td>
+</tr>
+        
+      </table>
+
+       <!-- 4th semester -->
+
+      <table>
+        <tr>
+          <th>semester | year</th>
+          <th>Course Title</th>
+          <th>CE</th>
+          <th>ESE</th>
+          <th>Grade Awarded</th>
+        </tr>
+        <tr>
+            <td>4th | November , 2021</td>
+          <td>Visual Tools</td>
+          <td>17.000</td>
+          <td>29.000</td>
+          <td>E</td>
+        </tr>
+        <td>4th | November , 2021</td>
+        <td>Database Management Systems</td>
+        <td>17.000</td>
+        <td>28.000</td>
+        <td>E</td>
+      </tr>
+    </tr>
+    <td>4th | November , 2021</td>
+    <td>Design and Analysis of Algorithms</td>
+    <td>17.000</td>
+    <td>31.000</td>
+    <td>E</td>
+  </tr>
+</tr>
+<td>4th | November , 2021</td>
+<td>System Software</td>
+<td>18.000</td>
+<td>30.000</td>
+<td>E</td>
+</tr>
+</tr>
+<td>4th | October , 2022</td>
+<td>Introduction to Information Security</td>
+<td>17.000</td>
+<td>23.000</td>
+<td>E</td>
+</tr>
+</tr>
+<td>4th | November , 2021</td>
+<td>Visual Tools Lab</td>
+<td>20.000</td>
+<td>71.000</td>
+<td>A+</td>
+</tr>
+</tr>
+<td>4th | November , 2021</td>
+<td>Databases Lab</td>
+<td>20.000</td>
+<td>62.000</td>
+<td>A</td>
+</tr>
+        
+      </table>
+
+          <!-- 5th semester -->
+    <table>
+        <tr>
+          <th>semester | year</th>
+          <th>Course Title</th>
+          <th>CE</th>
+          <th>ESE</th>
+          <th>Grade Awarded</th>
+        </tr>
+        <tr>
+            <td>5th | March , 2022</td>
+          <td>Internet Programming</td>
+          <td>17.000</td>
+          <td>30.000</td>
+          <td>E</td>
+        </tr>
+        <td>5th | April , 2023</td>
+        <td>Free and Open Source Softwares (FOSS)</td>
+        <td>18.000</td>
+        <td>48.000</td>
+        <td>C</td>
+      </tr>
+    </tr>
+    <td>5th | </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tr>
+<td>5th | </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tr>
+<td>5th | </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tr>
+<td>5th | March , 2022</td>
+<td>Internet Programming Lab</td>
+<td>18.000</td>
+<td>69.000</td>
+<td>A</td>
+</tr>
+</tr>
+<td>5th | March , 2022</td>
+<td>Computer Graphics Lab</td>
+<td>18.000</td>
+<td>62.000</td>
+<td>A+</td>
+</tr>
+        
+      </table>
+
+       <!-- 6th semester -->
+    <table>
+        <tr>
+          <th>semester | year</th>
+          <th>Course Title</th>
+          <th>CE</th>
+          <th>ESE</th>
+          <th>Grade Awarded</th>
+        </tr>
+        <tr>
+            <td>6th | March , 2022</td>
+          <td>Business Informatics</td>
+          <td>16.000</td>
+          <td>24.000</td>
+          <td>E</td>
+        </tr>
+        <td>6th | April , 2023 </td>
+        <td>Introduction to IT</td>
+        <td>16.000</td>
+        <td>54.000</td>
+        <td>B</td>
+      </tr>
+    </tr>
+    <td>6th | April , 2023 </td>
+    <td>Data Mining & Data Warehousing</td>
+    <td>16.000</td>
+    <td>28.000</td>
+    <td>E</td>
+  </tr>
+</tr>
+<td>6th | </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tr>
+<td>6th | March , 2022</td>
+<td>Free and Open Source Software (FOSS) Lab</td>
+<td>18.000</td>
+<td>72.000</td>
+<td>A+</td>
+</tr>
+</tr>
+<td>6th | March , 2022</td>
+<td>Major Project & Viva</td>
+<td></td>
+<td>70.000</td>
+<td>B</td>
+</tr>
+        
+      </table>
+</body>
+</html>
